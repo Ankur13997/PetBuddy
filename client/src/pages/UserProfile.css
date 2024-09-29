@@ -1,0 +1,70 @@
+/* UserProfile.css */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .profile-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .profile-title {
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .application-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .application-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .application-card p {
+    margin: 0;
+  }
+  
+  .application-card strong {
+    color: #333;
+  }
+  
+  .icon-dog {
+    font-size: 2rem;
+    margin-right: 10px;
+    color: #f39c12;
+  }
+  
+  .approved-icon {
+    color: #2ecc71;
+    margin-right: 5px;
+  }
+  
+  .rejected-icon {
+    color: #e74c3c;
+    margin-right: 5px;
+  }
+  
+  .profile-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .profile-card strong {
+    color: #333;
+    font-weight: bold;
+  }
+  

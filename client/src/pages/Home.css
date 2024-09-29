@@ -1,0 +1,199 @@
+/* General Styling */
+.home-container {
+  font-family: 'Arial', sans-serif;
+}
+
+.top-bar {
+  background-color: #f6f4e4;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar p {
+  margin: 0;
+}
+
+.contact-infor {
+  display: flex;
+  gap: 15px;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items in the center vertically */
+  padding: 20px;
+  background-color: #192a36;
+}
+
+/* Logo Styling */
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.navbar .logo img {
+  height: 40px; /* Adjust the size of the logo */
+  width: auto;
+}
+
+.navbar .logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Social Icons Styling */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hero Section Styling */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 70px;
+  background-color: #fff9e6;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.btn-buy-now {
+  padding: 10px 20px;
+  background-color: #ff9f1a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Hero Image Styling */
+.hero-image img {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 50% / 30%;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #666;
+  border-radius: 50% / 30%;
+  z-index: -1;
+}
+
+.hero-image::after {
+  /* Adjust for the bone image */
+  /* content: url('/images/bone.png'); Add the correct path */
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  width: 60px;
+  height: 60px;
+}
+
+/* Nutrition Philosophy Section */
+.nutrition-philosophy {
+  text-align: center;
+  padding: 90px 20px;
+  background-color: #fff;
+}
+
+.nutrition-philosophy h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.nutrition-philosophy p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.nutrition-features {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}
+
+.feature-item {
+  text-align: center;
+  max-width: 250px;
+}
+
+.feature-item img {
+  width: 60px; /* Adjusted size to fit better */
+  height: 60px; /* Adjusted size to fit better */
+  background-color: #FFA500; /* Yellow background */
+  border-radius: 30%; 
+  padding: 15px; /* Padding to create space inside the circle */
+  box-sizing: border-box;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.profile-link a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-icon {
+  margin-right: 8px;
+}
