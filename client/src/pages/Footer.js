@@ -1,72 +1,140 @@
-import "./Footer.css"; 
+import React from "react";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Grid,
+  Link,
+  IconButton,
+} from "@mui/material";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-section logo-section">
-        
-          <img
-            src="/images/dog.png"
-            alt="Petpew Logo"
-            className="footer-logo"
-          />
-          <span>PetBuddy</span>
-          <p className="footer-description">
-            Petpew’s holistic pet foods prioritize nutrient-rich ingredients for
-            pet vitality.
-          </p>
-          <div className="footer-social-icons">
-            <a href="/">
-              <img src="/path-to-social-icon1.png" alt="Facebook" />
-            </a>
-            <a href="/">
-              <img src="/path-to-social-icon2.png" alt="Instagram" />
-            </a>
-            <a href="/">
-              <img src="/path-to-social-icon3.png" alt="Twitter" />
-            </a>
-          </div>
-        </div>
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: "#222",
+        color: "#fff",
+        py: 6,
+        px: 2,
+      }}
+    >
+      <Grid container spacing={4} justifyContent="space-between">
+        {/* Logo and Description */}
+        <Grid item xs={12} md={3} textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
+              <img
+                src="/images/dog.png"
+                alt="PetBuddy Logo"
+                style={{ maxWidth: "50px" }}
+              />
+              <Typography variant="h5" component="span" fontWeight="bold">
+                PetBuddy
+              </Typography>
+            </Box>
+            <Typography variant="body2" sx={{ color: "#bbb", mt: 1 }}>
+              Petpew’s holistic pet foods prioritize nutrient-rich ingredients
+              for pet vitality.
+            </Typography>
+          </Box>
 
-        <div className="footer-section about-section">
-          <h4>About</h4>
-          <p>(+99)12345678</p>
-          <p>information@supp.net</p>
-        </div>
+          {/* Social Icons */}
+          <Box mt={2} display="flex" justifyContent="center" gap={2}>
+            <IconButton sx={{ color: "#fff" }} href="/">
+              <ShoppingBagIcon />
+            </IconButton>
+            <IconButton sx={{ color: "#fff" }} href="/">
+              <FacebookIcon />
+            </IconButton>
+            <IconButton sx={{ color: "#fff" }} href="/">
+              <InstagramIcon />
+            </IconButton>
+          </Box>
+        </Grid>
 
-        <div className="footer-section quick-links-section">
-          <h4>Quick links</h4>
-          <ul>
-            <li>
-              <a href="/">Cat product</a>
-            </li>
-            <li>
-              <a href="/">Dog product</a>
-            </li>
-            <li>
-              <a href="/">Rabbit product</a>
-            </li>
-            <li>
-              <a href="/">Reptile product</a>
-            </li>
-          </ul>
-        </div>
+        {/* About Section */}
+        <Grid item xs={12} md={3}>
+          <Typography variant="h6" component="h4" fontWeight="bold">
+            About
+          </Typography>
+          <Typography variant="body2" sx={{ color: "#bbb", mt: 1 }}>
+            (+99) 12345678
+          </Typography>
+          <Typography variant="body2" sx={{ color: "#bbb", mt: 1 }}>
+            information@supp.net
+          </Typography>
+        </Grid>
 
-        <div className="footer-section subscribe-section">
-          <p>Join our list and get 15% off your first purchase!</p>
-          <form className="subscribe-form">
-            <input
-              type="email"
+        {/* Quick Links Section */}
+        <Grid item xs={12} md={3}>
+          <Typography variant="h6" component="h4" fontWeight="bold">
+            Quick Links
+          </Typography>
+          <Box sx={{ mt: 1 }}>
+            <Link
+              href="/"
+              underline="none"
+              sx={{ display: "block", color: "#bbb", mb: 1 }}
+            >
+              Cat product
+            </Link>
+            <Link
+              href="/"
+              underline="none"
+              sx={{ display: "block", color: "#bbb", mb: 1 }}
+            >
+              Dog product
+            </Link>
+            <Link
+              href="/"
+              underline="none"
+              sx={{ display: "block", color: "#bbb", mb: 1 }}
+            >
+              Rabbit product
+            </Link>
+            <Link
+              href="/"
+              underline="none"
+              sx={{ display: "block", color: "#bbb" }}
+            >
+              Reptile product
+            </Link>
+          </Box>
+        </Grid>
+
+        {/* Subscribe Section */}
+        <Grid item xs={12} md={3}>
+          <Typography variant="body2" sx={{ color: "#bbb", mb: 2 }}>
+            Join our list and get 15% off your first purchase!
+          </Typography>
+          <Box component="form" display="flex">
+            <TextField
+              variant="outlined"
+              size="small"
               placeholder="your email"
-              className="subscribe-input"
+              sx={{
+                backgroundColor: "#fff",
+                borderRadius: "5px",
+                mr: 1,
+                flex: 1,
+              }}
             />
-            <button type="submit" className="subscribe-button">
+            <Button
+              variant="contained"
+              color="warning"
+              sx={{ borderRadius: "5px" }}
+            >
               Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-    </footer>
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
