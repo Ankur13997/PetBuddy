@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import "./Home.css"; // Assuming you have a CSS file for styling
 import Header from "./Header";
 import Footer from "./Footer";
+import Testimonials from "./Testimonials";
+import SubscribeSection from './SubscribeSection';
+// Update the image path as needed
+
 const Home = () => {
   return (
     <div className="home-container">
       {/* Top bar for the promotion */}
       <Header />
+      
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-text">
@@ -24,6 +29,8 @@ const Home = () => {
           <img src="/images/home_logo.jpg" alt="Happy dog" />
         </div>
       </section>
+
+      
 
       <section className="nutrition-philosophy">
         <h2>Our Nutrition Philosophy</h2>
@@ -63,6 +70,29 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* New Section with Woman and Dog */}
+      <section className="welcome-section">
+        <div className="welcome-image">
+          <img src='/images/about.png'alt="Woman holding a dog" />
+        </div>
+        <div className="welcome-text">
+          <h2>Welcome to The Pet Care Company</h2>
+          <p>
+            Ingredients in Petpew holistic pet foods are meticulously chosen for
+            their nutrient-rich profiles and health benefits, ensuring your pets
+            thrive both physically and mentally. We prioritize ingredients that
+            offer optimal nutrition and well-being, because we understand that
+            when pets are healthy, they exude vitality and joy.
+          </p>
+          <Link to="/about" className="btn-about-us">
+            About Us
+          </Link>
+        </div>
+      </section>
+
+      <Testimonials />
+      <SubscribeSection />
       <Footer />
     </div>
   );

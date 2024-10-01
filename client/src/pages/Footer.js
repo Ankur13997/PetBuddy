@@ -11,7 +11,6 @@ import {
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-
 const Footer = () => {
   return (
     <Box

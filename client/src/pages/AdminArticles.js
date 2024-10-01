@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ApiConfig from '../utils/ApiConfig';
 import {
   Container,
   TextField,
@@ -23,7 +24,7 @@ const AdminArticles = () => {
   const [editing, setEditing] = useState(null); // For updating articles
 
   const fetchArticles = async () => {
-    const res = await axios.get("http://localhost:5000/api/articles");
+    const res = await axios.get(`${ApiConfig.backendUrl}/api/articles`);
     setArticles(res.data);
   };
 
@@ -38,13 +39,13 @@ const AdminArticles = () => {
     try {
       if (editing) {
         await axios.put(
-          `http://localhost:5000/api/articles/${editing}`,
+          `${ApiConfig.backendUrl}/api/articles/${editing}`,
           formData,
           config
         ); // Update article
       } else {
         await axios.post(
-          "http://localhost:5000/api/articles",
+          `${ApiConfig.backendUrl}/api/articles`,
           formData,
           config
         ); // Create new article
@@ -66,7 +67,7 @@ const AdminArticles = () => {
     };
 
     try {
-      await axios.delete(`http://localhost:5000/api/articles/${id}`, config);
+      await axios.delete(`${ApiConfig.backendUrl}/api/articles/${id}`, config);
       fetchArticles();
     } catch (error) {
       console.error("Error deleting article:", error);

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ApiConfig from '../utils/ApiConfig';
 import {
   Container,
   Typography,
@@ -25,18 +26,19 @@ const PetList = () => {
     location: ''
   });
 
-  const fetchPets = async () => {
+  const fetchPets = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/pets', { params: searchParams });
+      const response = await axios.get(`${ApiConfig.backendUrl}/api/pets`, { params: searchParams });
       setPets(response.data);
     } catch (error) {
       console.error('Error fetching pet data:', error);
     }
-  };
+  }, [searchParams]);
 
+  // useEffect with memoized fetchPets function
   useEffect(() => {
     fetchPets();
-  }, [searchParams]);
+  }, [fetchPets]);
 
   const handleInputChange = (e) => {
     setSearchParams({

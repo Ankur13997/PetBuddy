@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FaEnvelope, FaCheckCircle, FaTimesCircle, FaDog } from 'react-icons/fa';
+import { FaEnvelope, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import Header from "./Header";
 import Footer from "./Footer";
 import PageHeader from "./PageHeader";
 import './UserProfile.css'; // Custom styles for UserProfile
-
+import ApiConfig from '../utils/ApiConfig';
 const UserProfile = () => {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const UserProfile = () => {
     const token = localStorage.getItem('token');
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/profile`, {
+        const response = await axios.get(`${ApiConfig.backendUrl}/api/users/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

@@ -13,26 +13,39 @@ import {
   CircularProgress,
   Paper,
 } from '@mui/material';
-
+import ApiConfig from '../utils/ApiConfig';
 const PetDetail = () => {
   const { id } = useParams(); // Get the pet ID from the URL
   const [pet, setPet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const fetchPetDetail = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/pets/${id}`);
-      setPet(response.data);
-      setLoading(false);
-    } catch (error) {
-      setError('Error fetching pet details.');
-      setLoading(false);
-    }
-  };
+ 
 
   useEffect(() => {
-    fetchPetDetail();
+    let isMounted = true;
+
+    const fetchPetData = async () => {
+      try {
+        const response = await axios.get(`${ApiConfig.backendUrl}/api/pets/${id}`);
+        if (isMounted) {
+          setPet(response.data);
+          setLoading(false);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setError('Error fetching pet details.');
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchPetData();
+
+    // Cleanup function to avoid state updates if the component is unmounted
+    return () => {
+      isMounted = false;
+    };
   }, [id]);
 
   if (loading) return <CircularProgress />;

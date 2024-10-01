@@ -125,6 +125,7 @@ const ContactUs = () => {
               Plot no 24. Sanket Nagar near Suyog nagar, Nagpur, Maharashtra 440015
             </Typography>
             <iframe
+              title="Google Maps Location of our Office"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.690535190513!2d79.0829567!3d21.1064993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf68da7c256b%3A0x8f7e77e46d4b8360!2sTukaram%20Sabhagruh%2C%20Dulhan%20Electronics%20and%20Gifts%2C%20Prakash%20Traders!5e0!3m2!1sen!2sid!4v1632519160587!5m2!1sen!2sid"
               width="100%"
               height="300"

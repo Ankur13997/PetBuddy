@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ApiConfig from '../utils/ApiConfig';
 import {
   Container,
   TextField,
@@ -33,7 +34,7 @@ const AdminAddPet = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/users/profile",
+          `${ApiConfig.backendUrl}/api/users/profile`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -62,7 +63,7 @@ const AdminAddPet = () => {
         headers: { Authorization: `Bearer ${token}` },
       };
 
-      await axios.post("http://localhost:5000/api/pets", formData, config);
+      await axios.post(`${ApiConfig.backendUrl}/api/pets`, formData, config);
       setSuccess("Pet added successfully");
     } catch (err) {
       setError("Failed to add pet");

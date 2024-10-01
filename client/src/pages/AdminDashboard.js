@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import ApiConfig from '../utils/ApiConfig';
 import Header from "./Header";
 import Footer from "./Footer";
 import PageHeader from "./PageHeader";
@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   const fetchApplications = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/admin/applications"
+        `${ApiConfig.backendUrl}/api/admin/applications`
       );
       setApplications(response.data);
     } catch (error) {
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
 
   const fetchPets = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/pets");
+      const response = await axios.get(`${ApiConfig.backendUrl}/api/pets`);
       setPets(response.data);
     } catch (error) {
       console.error("Error fetching pets:", error);
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/admin/applications/${id}`, {
+      await axios.put(`${ApiConfig.backendUrl}/api/admin/applications/${id}`, {
         status,
       });
       fetchApplications();
@@ -65,7 +65,7 @@ const AdminDashboard = () => {
         headers: { Authorization: `Bearer ${token}` },
       };
       await axios.delete(
-        `http://localhost:5000/api/admin/applications/${id}`,
+        `${ApiConfig.backendUrl}/api/admin/applications/${id}`,
         config
       );
       setApplications(applications.filter((app) => app._id !== id));
@@ -81,7 +81,7 @@ const AdminDashboard = () => {
         headers: { Authorization: `Bearer ${token}` },
       };
       await axios.delete(
-        `http://localhost:5000/api/admin/delete-pet/${id}`,
+        `${ApiConfig.backendUrl}/api/admin/delete-pet/${id}`,
         config
       );
       setPets(pets.filter((pet) => pet._id !== id));

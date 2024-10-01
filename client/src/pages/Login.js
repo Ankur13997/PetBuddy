@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container, Typography, Box, Avatar, Grid, Alert } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import useRedirectIfAuthenticated from './useRedirectIfAuthenticated';
+import ApiConfig from '../utils/ApiConfig';
 export const Login = () => {
   useRedirectIfAuthenticated();
   const [user, setUser] = useState({
@@ -32,7 +33,7 @@ export const Login = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(`${ApiConfig.backendUrl}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

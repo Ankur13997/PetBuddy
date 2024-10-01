@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useUser } from './UserContext';
+import ApiConfig from '../utils/ApiConfig';
 import {
-  Box,
+  
   TextField,
   Button,
   Typography,
@@ -28,7 +29,7 @@ const AdoptionForm = ({ petId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5000/api/adoptions`, { ...formData, petId, userId });
+      await axios.post(`${ApiConfig.backendUrl}/api/adoptions`, { ...formData, petId, userId });
       setSuccess(true);
       setError(false);
       setFormData({ name: '', email: '', message: '' }); // Reset form

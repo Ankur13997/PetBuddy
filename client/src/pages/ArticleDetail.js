@@ -4,14 +4,14 @@ import axios from 'axios';
 import { Container, Typography, Box } from '@mui/material';
 import Header from './Header';
 import Footer from './Footer';
-
+import ApiConfig from '../utils/ApiConfig';
 const ArticleDetail = () => {
   const { id } = useParams();  // Extract the article ID from the URL
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
     const fetchArticle = async () => {
-      const res = await axios.get(`http://localhost:5000/api/articles/${id}`);
+      const res = await axios.get(`${ApiConfig.backendUrl}/api/articles/${id}`);
       setArticle(res.data);
     };
     fetchArticle();

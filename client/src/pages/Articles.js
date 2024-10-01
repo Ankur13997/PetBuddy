@@ -5,13 +5,13 @@ import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 import PageHeader from './PageHeader';  // Import your new PageHeader component
-
+import ApiConfig from '../utils/ApiConfig';
 const Articles = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
-      const res = await axios.get('http://localhost:5000/api/articles');
+      const res = await axios.get(`${ApiConfig.backendUrl}/api/articles`);
       setArticles(res.data);
     };
     fetchArticles();

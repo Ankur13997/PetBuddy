@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import ApiConfig from '../utils/ApiConfig';
 const AdoptionStatus = ({ userId }) => {
   const [applications, setApplications] = useState([]);
   const [error, setError] = useState('');
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/adoptions/user/${userId}`);
+      const response = await axios.get(`${ApiConfig.backendUrl}/api/adoptions/user/${userId}`);
       setApplications(response.data);
     } catch (err) {
       setError('Error fetching applications.');
