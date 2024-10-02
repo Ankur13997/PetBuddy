@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 import { FaEnvelope, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import Header from "./Header";
 import Footer from "./Footer";
 import PageHeader from "./PageHeader";
 import './UserProfile.css'; // Custom styles for UserProfile
 import ApiConfig from '../utils/ApiConfig';
+import { CircularProgress, Box } from '@mui/material';
 const UserProfile = () => {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,8 +33,22 @@ const UserProfile = () => {
     fetchUserProfile();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) {
+    // Render a centered loading spinner while the context is loading
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh', // Full height to center the spinner
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+  if (error) return <Navigate to="/login" />;;
 
   return (
     <>

@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import Header from "./Header";
 import Footer from "./Footer";
-
+import PageHeader from './PageHeader'; 
 const PetList = () => {
   const [pets, setPets] = useState([]);
   const [searchParams, setSearchParams] = useState({
@@ -47,6 +47,7 @@ const PetList = () => {
   return (
     <>
       <Header />
+      <PageHeader title="Pets" imageSrc="/images/blog.png" />
       <Container maxWidth="md" style={{ marginTop: '20px', padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
         <Typography variant="h4" align="center" gutterBottom>
           Available Pets for Adoption

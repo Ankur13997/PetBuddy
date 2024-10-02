@@ -6,6 +6,7 @@ const ArticleSchema = new mongoose.Schema({
   content: { type: String, required: true },
   category: { type: String, required: true },
   author: { type: String, required: true },
+  image: { type: String }, // Image field
   createdAt: { type: Date, default: Date.now }
 });
 

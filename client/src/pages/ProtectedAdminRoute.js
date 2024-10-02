@@ -1,16 +1,30 @@
 import { useUser } from './UserContext';
 import { Navigate } from 'react-router-dom';
-
+import { CircularProgress, Box } from '@mui/material';
 const ProtectedAdminRoute = ({ children }) => {
-  const { isAdmin } = useUser(); // Get admin status from context
+  const { isAdmin, loading } = useUser(); // Include loading state
+ 
 
-  // Check if the user is an admin
+  if (loading) {
+    // Render a centered loading spinner while the context is loading
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh', // Full height to center the spinner
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
   if (!isAdmin) {
-    // If the user is not an admin, redirect them to the home page or login
     return <Navigate to="/" />;
   }
 
-  // If the user is an admin, render the children components
   return children;
 };
 

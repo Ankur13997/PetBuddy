@@ -4,34 +4,24 @@ import ApiConfig from '../utils/ApiConfig';
 import Header from "./Header";
 import Footer from "./Footer";
 import PageHeader from "./PageHeader";
-import { Link } from "react-router-dom";
-
-// Import Material UI Components
-import { Card, CardContent, Typography, Grid } from "@mui/material";
+import AdminAddPet from "./AdminAddPet";
+import AdminArticles from "./AdminArticles";
+import { Card, CardContent, Typography, Grid, Button, List, ListItem, ListItemText, Box } from "@mui/material";
 import { CheckCircle, Cancel, Delete } from "@mui/icons-material";
-import { styled } from "@mui/material/styles";
-import { Button } from "@mui/material";
-// Styled Link for modern look
-const StyledLink = styled(Link)(({ theme }) => ({
-  textDecoration: "none",
-  color: theme.palette.primary.main,
-  fontWeight: "bold",
-  fontSize: "1.2rem",
-  "&:hover": {
-    color: theme.palette.primary.dark,
-    textDecoration: "underline",
-  },
-}));
+
+
+
 
 const AdminDashboard = () => {
+  const [selectedSection, setSelectedSection] = useState("Adoption Applications");
   const [applications, setApplications] = useState([]);
   const [pets, setPets] = useState([]);
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get(
-        `${ApiConfig.backendUrl}/api/admin/applications`
-      );
+      const token = localStorage.getItem("token");
+      const config = { headers: { Authorization: `Bearer ${token}` } };
+      const response = await axios.get(`${ApiConfig.backendUrl}/api/admin/applications`, config);
       setApplications(response.data);
     } catch (error) {
       console.error("Error fetching applications:", error);
@@ -49,9 +39,7 @@ const AdminDashboard = () => {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await axios.put(`${ApiConfig.backendUrl}/api/admin/applications/${id}`, {
-        status,
-      });
+      await axios.put(`${ApiConfig.backendUrl}/api/admin/applications/${id}`, { status });
       fetchApplications();
     } catch (error) {
       console.error("Error updating application status:", error);
@@ -61,13 +49,8 @@ const AdminDashboard = () => {
   const deleteApplication = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      const config = {
-        headers: { Authorization: `Bearer ${token}` },
-      };
-      await axios.delete(
-        `${ApiConfig.backendUrl}/api/admin/applications/${id}`,
-        config
-      );
+      const config = { headers: { Authorization: `Bearer ${token}` } };
+      await axios.delete(`${ApiConfig.backendUrl}/api/admin/applications/${id}`, config);
       setApplications(applications.filter((app) => app._id !== id));
     } catch (error) {
       console.error("Error deleting application:", error);
@@ -77,13 +60,8 @@ const AdminDashboard = () => {
   const deletePet = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      const config = {
-        headers: { Authorization: `Bearer ${token}` },
-      };
-      await axios.delete(
-        `${ApiConfig.backendUrl}/api/admin/delete-pet/${id}`,
-        config
-      );
+      const config = { headers: { Authorization: `Bearer ${token}` } };
+      await axios.delete(`${ApiConfig.backendUrl}/api/admin/delete-pet/${id}`, config);
       setPets(pets.filter((pet) => pet._id !== id));
     } catch (error) {
       console.error("Error deleting pet:", error);
@@ -95,87 +73,85 @@ const AdminDashboard = () => {
     fetchPets();
   }, []);
 
+  const renderContent = () => {
+    switch (selectedSection) {
+      case "Add New Pet":
+        return <AdminAddPet />; // Replace with the actual component
+      case "Manage Articles":
+        return <AdminArticles />; // Replace with the actual component
+      case "Adoption Applications":
+        return applications.map((app) => (
+          <Card key={app._id} style={{ marginBottom: "16px" }}>
+            <CardContent>
+              <Typography variant="h6">Name: {app.name}</Typography>
+              <Typography>Email: {app.email}</Typography>
+              <Typography>Message: {app.message}</Typography>
+              <Typography>Status: {app.status || "Pending"}</Typography>
+              <Button variant="contained" color="success" startIcon={<CheckCircle />} onClick={() => handleStatusChange(app._id, "approved")}>
+                Approve
+              </Button>
+              <Button variant="contained" color="error" startIcon={<Cancel />} onClick={() => handleStatusChange(app._id, "rejected")} style={{ marginLeft: "10px" }}>
+                Reject
+              </Button>
+              <Button variant="contained" color="secondary" startIcon={<Delete />} onClick={() => deleteApplication(app._id)} style={{ marginLeft: "10px" }}>
+                Delete
+              </Button>
+            </CardContent>
+          </Card>
+        ));
+      case "Manage Pets":
+        return pets.map((pet) => (
+          <Card key={pet._id} style={{ marginBottom: "16px" }}>
+            <CardContent>
+              <Typography variant="h6">Name: {pet.name}</Typography>
+              <Typography>Species: {pet.species}</Typography>
+              <Typography>Breed: {pet.breed}</Typography>
+              <Typography>Age: {pet.age}</Typography>
+              <Typography>Location: {pet.location}</Typography>
+              <Button variant="contained" color="error" startIcon={<Delete />} onClick={() => deletePet(pet._id)}>
+                Delete Pet
+              </Button>
+            </CardContent>
+          </Card>
+        ));
+      default:
+        return null;
+    }
+  };
+
   return (
     <div>
       <Header />
       <PageHeader title="Admin" imageSrc="/images/blog.png" />
-
-      {/* Modern Styled Links */}
-      <Grid container spacing={2} style={{ marginBottom: "20px" }}>
-        <Grid item xs={12} md={6}>
-          <StyledLink to="/admin/add-pet">Add New Pet</StyledLink>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <StyledLink to="/admin/articles">Manage Articles</StyledLink>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h4" gutterBottom>
-            Adoption Applications
-          </Typography>
-          {applications.map((app) => (
-            <Card key={app._id} style={{ marginBottom: "16px" }}>
-              <CardContent>
-                <Typography variant="h6">Name: {app.name}</Typography>
-                <Typography>Email: {app.email}</Typography>
-                <Typography>Message: {app.message}</Typography>
-                <Typography>Status: {app.status || "Pending"}</Typography>
-                <Button
-                  variant="contained"
-                  color="success"
-                  startIcon={<CheckCircle />}
-                  onClick={() => handleStatusChange(app._id, "approved")}
-                >
-                  Approve
-                </Button>
-                <Button
-                  variant="contained"
-                  color="error"
-                  startIcon={<Cancel />}
-                  onClick={() => handleStatusChange(app._id, "rejected")}
-                  style={{ marginLeft: "10px" }}
-                >
-                  Reject
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  startIcon={<Delete />}
-                  onClick={() => deleteApplication(app._id)}
-                  style={{ marginLeft: "10px" }}
-                >
-                  Delete
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+      
+      <Grid container>
+        {/* First Column: Links */}
+        <Grid item xs={3}>
+          <List>
+            {["Add New Pet", "Manage Articles", "Adoption Applications", "Manage Pets"].map((section) => (
+              <ListItem
+                button
+                key={section}
+                onClick={() => setSelectedSection(section)}
+                style={{
+                  backgroundColor: selectedSection === section ? "#e0f7fa" : "inherit", // Highlight selected section
+                  borderRadius: "5px",
+                }}
+              >
+                <ListItemText primary={section} />
+              </ListItem>
+            ))}
+          </List>
         </Grid>
 
-        <Grid item xs={12} md={6}>
-          <Typography variant="h4" gutterBottom>
-            Manage Pets
-          </Typography>
-          {pets.map((pet) => (
-            <Card key={pet._id} style={{ marginBottom: "16px" }}>
-              <CardContent>
-                <Typography variant="h6">Name: {pet.name}</Typography>
-                <Typography>Species: {pet.species}</Typography>
-                <Typography>Breed: {pet.breed}</Typography>
-                <Typography>Age: {pet.age}</Typography>
-                <Typography>Location: {pet.location}</Typography>
-                <Button
-                  variant="contained"
-                  color="error"
-                  startIcon={<Delete />}
-                  onClick={() => deletePet(pet._id)}
-                >
-                  Delete Pet
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Second Column: Dynamic Content */}
+        <Grid item xs={9}>
+          <Box p={3}>
+            <Typography variant="h4" gutterBottom>
+              {selectedSection}
+            </Typography>
+            {renderContent()}
+          </Box>
         </Grid>
       </Grid>
 

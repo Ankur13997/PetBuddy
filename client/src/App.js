@@ -7,8 +7,7 @@ import PetDetail from "./pages/PetDetail";
 import AdminDashboard from "./pages/AdminDashboard";
 import { UserProvider } from "./pages/UserContext";
 import UserProfile from './pages/UserProfile';
-import AdminAddPet from './pages/AdminAddPet';
-import AdminArticles from './pages/AdminArticles';
+
 import Articles from './pages/Articles';
 import Error from './pages/Error';
 import ContactUs from "./pages/ContactUs";
@@ -41,22 +40,7 @@ function App() {
               </ProtectedAdminRoute>
             }
           />
-          <Route
-            path="/admin/add-pet"
-            element={
-              <ProtectedAdminRoute>
-                <AdminAddPet />
-              </ProtectedAdminRoute>
-            }
-          />
-          <Route
-            path="/admin/articles"
-            element={
-              <ProtectedAdminRoute>
-                <AdminArticles />
-              </ProtectedAdminRoute>
-            }
-          />
+          
         </Routes>
       </BrowserRouter>
     </UserProvider>

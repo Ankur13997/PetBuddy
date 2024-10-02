@@ -5,13 +5,11 @@ import {
   Container,
   TextField,
   Button,
-  Typography,
   Alert,
   Box,
   Snackbar,
 } from "@mui/material";
-import Header from "./Header";
-import Footer from "./Footer";
+
 
 const AdminAddPet = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +25,7 @@ const AdminAddPet = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
+
 
   useEffect(() => {
     const checkAdminStatus = async () => {
@@ -41,7 +39,7 @@ const AdminAddPet = () => {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
-        setIsAdmin(response.data.isAdmin); // Set admin status from user data
+        
       } catch (error) {
         setError("Error checking admin status");
       }
@@ -85,24 +83,16 @@ const AdminAddPet = () => {
     }
   };
 
-  if (!isAdmin) {
-    return (
-      <Typography variant="h6">
-        You do not have permission to add a pet.
-      </Typography>
-    ); // Block non-admin users
-  }
+  
 
   return (
     <>
-      <Header />
+     
       <Container
         maxWidth="md"
         sx={{ backgroundColor: "#fefbf5", p: 4, borderRadius: 2 }}
       >
-        <Typography variant="h4" gutterBottom>
-          Add New Pet
-        </Typography>
+        
         
         <Box
           component="form"
@@ -202,7 +192,7 @@ const AdminAddPet = () => {
         </Alert>
       </Snackbar>
       </Container>
-      <Footer />
+      
     </>
   );
 };
