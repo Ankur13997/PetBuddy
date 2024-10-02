@@ -13,7 +13,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const subscribeRoutes = require('./routes/subscribeRoutes')
 var corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://petbuddy.onrender.com',
   methods: "GET, POST, DELETE, PATCH, HEAD, PUT",
   credentials: true,
 };
