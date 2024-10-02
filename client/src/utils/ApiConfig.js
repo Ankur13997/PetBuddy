@@ -1,5 +1,5 @@
 const ApiConfig = {
-    backendUrl: "http://localhost:5000",
+    backendUrl: "https://petbuddy-backened.onrender.com",
   };
   
   export default ApiConfig;
