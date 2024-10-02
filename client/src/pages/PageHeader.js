@@ -11,7 +11,7 @@ const PageHeader = ({ title, imageSrc }) => {
         backgroundColor: '#fefbf5',
         padding: '0rem 7rem',
         position: 'relative',
-        height: '500px', // Increased the height of the PageHeader
+        height: '550px', // Increased the height of the PageHeader
         overflow: 'hidden' // To prevent overflow issues
       }}
     >

@@ -110,7 +110,7 @@ const Header = () => {
             <Button component={Link} to="/" color="inherit">Home</Button>
             <Button component={Link} to="/pets" color="inherit">Pets List</Button>
             <Button component={Link} to="/blog" color="inherit">Blog</Button>
-            <Button component={Link} to="/petmatchmaker" color="inherit">Pet Match</Button>
+            <Button component={Link} to="/petmatchmaker" color="inherit">Pet Matcher</Button>
             <Button component={Link} to="/about-us" color="inherit">About Us</Button>
             <Button component={Link} to="/contact-us" color="inherit">Contact Us</Button>
             {isAdmin && <Button component={Link} to="/admin" color="inherit">Admin</Button>}

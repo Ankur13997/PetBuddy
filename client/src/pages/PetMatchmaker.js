@@ -12,7 +12,7 @@ import {
 import { styled } from "@mui/system";
 import Header from "./Header";
 import Footer from "./Footer";
-
+import PageHeader from "./PageHeader";
 // Custom animation for the final result
 const ResultBox = styled(Box)({
   animation: "fadeInUp 0.8s ease-out",
@@ -190,7 +190,7 @@ const PetMatchmaker = () => {
   return (
     <>
       <Header />
-
+      <PageHeader title="Pet Matcher" imageSrc="/images/blog.png" />
       <Box
         sx={{
           display: "flex",

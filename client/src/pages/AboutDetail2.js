@@ -12,12 +12,12 @@ const AboutDetail2 = () => {
         {/* Text Section */}
         <Grid item xs={12} md={6}>
           <Typography variant="h3" fontWeight="bold" gutterBottom>
-            Helping dogs and cats live long and healthy
+          Helping Pets Live Happy and Healthy Lives
           </Typography>
           <Typography variant="body1" paragraph>
-            Experience the transformative power of our Bowl Builder tool, where even minor adjustments yield significant results.
-            Discover how incorporating fresh ingredients into your pet's meals enhances their well-being, regardless of their preferred diet—
-            be it canned, kibble, raw, or a combination of these options.
+          With PetBuddy's Adoption Support, even small changes can make a big impact. 
+          Whether your pet prefers kibble, raw, or a mix, we guide you in providing the best care. 
+          Fresh ingredients and personalized tips ensure your furry friend thrives in their new home!
           </Typography>
           
         </Grid>

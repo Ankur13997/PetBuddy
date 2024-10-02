@@ -38,11 +38,9 @@ const AboutDetail1 = () => {
               Welcome to The Pet Care Company
             </Typography>
             <Typography variant="body1" paragraph>
-              Ingredients in Petpew holistic pet foods are meticulously chosen for
-              their nutrient-rich profiles and health benefits, ensuring your pets
-              thrive both physically and mentally. We prioritize ingredients that
-              offer optimal nutrition and well-being, because we understand that
-              when pets are healthy, they exude vitality and joy.
+            At PetBuddy, we ensure every pet finds a loving home. 
+            Our focus is on making perfect adoption matches, prioritizing the health and happiness of both pets and their new families. 
+            When pets are loved and cared for, they thrive, bringing joy to everyone involved!
             </Typography>
           </Grid>
         </Grid>

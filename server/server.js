@@ -11,7 +11,7 @@ const articleRoutes = require('./routes/articleRoutes'); // Import article route
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const morgan = require('morgan');
-
+const subscribeRoutes = require('./routes/subscribeRoutes')
 var corsOptions = {
   origin: 'http://localhost:3000',
   methods: "GET, POST, DELETE, PATCH, HEAD, PUT",
@@ -32,7 +32,7 @@ app.use('/api/adoptions', adoptionRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/articles', articleRoutes); // Add articles route
-
+app.use('/api', subscribeRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack); // Log the error stack for debugging
