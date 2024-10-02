@@ -8,9 +8,11 @@ import {
   Typography,
   Alert,
   Box,
+  Snackbar,
 } from "@mui/material";
 import Header from "./Header";
 import Footer from "./Footer";
+
 const AdminAddPet = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -65,6 +67,19 @@ const AdminAddPet = () => {
 
       await axios.post(`${ApiConfig.backendUrl}/api/pets`, formData, config);
       setSuccess("Pet added successfully");
+
+      // Clear the input fields
+      setFormData({
+        name: "",
+        species: "",
+        breed: "",
+        age: "",
+        size: "",
+        location: "",
+        description: "",
+        photos: "",
+        adoptionRequirements: "",
+      });
     } catch (err) {
       setError("Failed to add pet");
     }
@@ -88,8 +103,7 @@ const AdminAddPet = () => {
         <Typography variant="h4" gutterBottom>
           Add New Pet
         </Typography>
-        {error && <Alert severity="error">{error}</Alert>}
-        {success && <Alert severity="success">{success}</Alert>}
+        
         <Box
           component="form"
           sx={{
@@ -152,10 +166,11 @@ const AdminAddPet = () => {
             rows={4}
           />
           <TextField
-            label="Photo URLs (comma separated)"
+            label="Photo URL"
             name="photos"
             value={formData.photos}
             onChange={handleChange}
+            required
           />
           <TextField
             label="Adoption Requirements"
@@ -165,10 +180,27 @@ const AdminAddPet = () => {
             multiline
             rows={4}
           />
-          <Button variant="contained" color="primary" type="submit">
+          <Button variant="contained" sx={{
+            backgroundColor: '#FFC107', // Yellow color
+            color: '#192a36', // Dark text color for contrast
+            '&:hover': {
+              backgroundColor: '#FFEB3B', // Lighter yellow on hover
+            },
+            width: '100%',
+          }} type="submit">
             Add Pet
           </Button>
         </Box>
+        <Snackbar open={success} autoHideDuration={6000} onClose={() => setSuccess(false)}>
+        <Alert onClose={() => setSuccess(false)} severity="success">
+          Application submitted successfully!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={error} autoHideDuration={6000} onClose={() => setError(false)}>
+        <Alert onClose={() => setError(false)} severity="error">
+          Failed to submit application.
+        </Alert>
+      </Snackbar>
       </Container>
       <Footer />
     </>

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import TwitterIcon from "@mui/icons-material/Twitter";
 const Footer = () => {
   return (
     <Box
@@ -37,15 +37,14 @@ const Footer = () => {
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ color: "#bbb", mt: 1 }}>
-              Petpew’s holistic pet foods prioritize nutrient-rich ingredients
-              for pet vitality.
+            PetBuddy focuses on providing loving homes to enhance every pet's vitality.
             </Typography>
           </Box>
 
           {/* Social Icons */}
           <Box mt={2} display="flex" justifyContent="center" gap={2}>
             <IconButton sx={{ color: "#fff" }} href="/">
-              <ShoppingBagIcon />
+              <TwitterIcon />
             </IconButton>
             <IconButton sx={{ color: "#fff" }} href="/">
               <FacebookIcon />
@@ -62,10 +61,10 @@ const Footer = () => {
             About
           </Typography>
           <Typography variant="body2" sx={{ color: "#bbb", mt: 1 }}>
-            (+99) 12345678
+            (+91) 7588130302
           </Typography>
           <Typography variant="body2" sx={{ color: "#bbb", mt: 1 }}>
-            information@supp.net
+            ankur.130120@gmail.com
           </Typography>
         </Grid>
 
@@ -76,25 +75,25 @@ const Footer = () => {
           </Typography>
           <Box sx={{ mt: 1 }}>
             <Link
-              href="/"
+              href="/pets"
               underline="none"
               sx={{ display: "block", color: "#bbb", mb: 1 }}
             >
-              Cat product
+              Pet List
             </Link>
             <Link
-              href="/"
+              href="/blog"
               underline="none"
               sx={{ display: "block", color: "#bbb", mb: 1 }}
             >
-              Dog product
+              Blog
             </Link>
             <Link
-              href="/"
+              href="/contact-us"
               underline="none"
               sx={{ display: "block", color: "#bbb", mb: 1 }}
             >
-              Rabbit product
+              Contact Us
             </Link>
             <Link
               href="/"

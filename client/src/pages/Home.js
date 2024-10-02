@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import SubscribeSection from './SubscribeSection';
+import HomePet from "./HomePet";
 // Update the image path as needed
 
 const Home = () => {
@@ -16,10 +17,10 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-text">
-          <h1>Slow-Cooked Pet Food Optimal Nutrition & Taste</h1>
+          <h1>Find Your Perfect Companion Today</h1>
           <p>
-            Welcome to our platform, your ultimate destination for fulfilling
-            all your pet's food needs!
+          Welcome to PetBuddy, where every pet deserves a loving home!
+          
           </p>
           <Link to="/pets" className="btn-buy-now">
             Explore Now
@@ -33,39 +34,38 @@ const Home = () => {
       
 
       <section className="nutrition-philosophy">
-        <h2>Our Nutrition Philosophy</h2>
+        <h2>Our Adoption Philosophy</h2>
         <p>
-          Slow-cooking at reduced temperatures results in heightened
-          preservation of essential nutrients
+      
+        Our mission is to connect pets in need with families ready to welcome them.
         </p>
 
         <div className="nutrition-features">
           <div className="feature-item">
-            <img src="/images/tick.png" alt="Quality Product" />
-            <h3>Quality Product</h3>
-            <p>Unprecedented safety and quality now for your pets</p>
+            <img src="/images/home.png" alt="Quality Product" />
+            <h3>Loving Homes</h3>
+            <p>We match pets with caring families for a brighter future.</p>
           </div>
 
           <div className="feature-item">
-            <img src="/images/bone.png" alt="Real Food" />
-            <h3>Real Food</h3>
+            <img src="/images/heart.png" alt="Real Food" />
+            <h3>Heartfelt Care</h3>
             <p>
-              Human-grade meat, veggies, simple recipes—perfect for your dog
+            Every pet receives the attention and love they deserve.
             </p>
           </div>
 
           <div className="feature-item">
-            <img src="/images/phone-call.png" alt="24/6 Support" />
-            <h3>24/6 Support</h3>
-            <p>Reliable assistance available around the clock, every day</p>
+            <img src="/images/support.png" alt="24/6 Support" />
+            <h3>Support & Guidance</h3>
+            <p>Our team is here to help you every step of the way.</p>
           </div>
 
           <div className="feature-item">
-            <img src="/images/natural.png" alt="Premium Ingredient" />
-            <h3>Premium Ingredient</h3>
+            <img src="/images/community.png" alt="Premium Ingredient" />
+            <h3>Community</h3>
             <p>
-              Ensure integrity of both nutritional content and whole food
-              quality
+            Join a network of pet lovers dedicated to making a difference.
             </p>
           </div>
         </div>
@@ -79,18 +79,17 @@ const Home = () => {
         <div className="welcome-text">
           <h2>Welcome to The Pet Care Company</h2>
           <p>
-            Ingredients in Petpew holistic pet foods are meticulously chosen for
-            their nutrient-rich profiles and health benefits, ensuring your pets
-            thrive both physically and mentally. We prioritize ingredients that
-            offer optimal nutrition and well-being, because we understand that
-            when pets are healthy, they exude vitality and joy.
+          At PetBuddy, we are dedicated to finding loving homes for pets in need. 
+          Every animal deserves a second chance and a family to call their own. 
+          Our commitment extends beyond adoption; we provide resources and support to ensure a smooth transition for both pets and their new owners. 
+          Because when pets are loved, they bring joy and happiness to our lives.
           </p>
           <Link to="/about" className="btn-about-us">
             About Us
           </Link>
         </div>
       </section>
-
+      <HomePet/>
       <Testimonials />
       <SubscribeSection />
       <Footer />

@@ -2,44 +2,38 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Home.css"; // Assuming you have custom CSS for additional styling
-import { FaUserCircle } from "react-icons/fa"; 
+import { FaUserCircle } from "react-icons/fa";
+
 const testimonials = [
   {
     text: "Thank you for providing such tasty options for our pets. They love every bite!",
     name: "Sebastian",
     role: "Customer",
-    image: "/path-to-sebastian-image.png",
   },
   {
     text: "My furry friend absolutely adores the food from this website! It's both delicious and nutritious.",
     name: "Donark",
     role: "Customer",
-    image: "/path-to-donark-image.png",
   },
   {
     text: "The variety of pet food options available here is unmatched. My cat enjoys every meal.",
     name: "Carolina",
     role: "Customer",
-    image: "/path-to-carolina-image.png",
   },
   {
     text: "Thank you for providing such tasty options for our pets. They love every bite!",
     name: "Sebastian",
     role: "Customer",
-    image: "/path-to-sebastian-image.png",
   },
   {
     text: "My furry friend absolutely adores the food from this website! It's both delicious and nutritious.",
     name: "Donark",
     role: "Customer",
-    image: "/path-to-donark-image.png",
   },
   {
     text: "The variety of pet food options available here is unmatched. My cat enjoys every meal.",
     name: "Carolina",
     role: "Customer",
-    image: "/path-to-carolina-image.png",
   },
 ];
 
@@ -48,10 +42,10 @@ const Testimonials = () => {
     dots: true,
     infinite: true,
     speed: 2000,
-    slidesToShow: 3, // Number of slides to show at once
-    slidesToScroll: 1, // Number of slides to scroll at once
-    autoplay: true,    // Enable automatic scrolling
-    autoplaySpeed: 3000, // Speed in milliseconds
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1024,
@@ -69,7 +63,13 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="testimonials-section">
+    <section
+      className="testimonials-section"
+      style={{
+        maxWidth: "85%", // Reduced width (adjust as needed)
+        margin: "0 auto", // Center the section
+      }}
+    >
       <h2>What Our Clients Say</h2>
       <p>Testimonials & Reviews – What our customers are saying</p>
       <Slider {...settings}>
@@ -77,8 +77,7 @@ const Testimonials = () => {
           <div className="testimonial-item" key={index}>
             <p>{testimonial.text}</p>
             <div className="testimonial-user">
-              {/* <img src={testimonial.image} alt={testimonial.name} /> */}
-              <FaUserCircle className="testimonial-img"  />
+              <FaUserCircle className="testimonial-img" />
               <div>
                 <h3>{testimonial.name}</h3>
                 <p>{testimonial.role}</p>

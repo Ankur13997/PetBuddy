@@ -14,6 +14,7 @@ import Error from './pages/Error';
 import ContactUs from "./pages/ContactUs";
 import ArticleDetail from './pages/ArticleDetail';
 import ProtectedAdminRoute from './pages/ProtectedAdminRoute'
+import About from "./pages/About";
 function App() {
   return (
     <UserProvider>
@@ -28,6 +29,7 @@ function App() {
           <Route path="/blog" element={<Articles />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="*" element={<Error />} />
 
           {/* Protected routes for Admin */}

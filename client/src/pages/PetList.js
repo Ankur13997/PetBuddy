@@ -6,14 +6,12 @@ import {
   Container,
   Typography,
   TextField,
-  Button,
   Grid,
   Card,
   CardContent,
   CardMedia,
   Paper,
 } from '@mui/material';
-import { Search } from '@mui/icons-material'; // Material UI icon
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -35,7 +33,6 @@ const PetList = () => {
     }
   }, [searchParams]);
 
-  // useEffect with memoized fetchPets function
   useEffect(() => {
     fetchPets();
   }, [fetchPets]);
@@ -56,6 +53,9 @@ const PetList = () => {
         </Typography>
 
         <Paper elevation={3} style={{ padding: '16px', marginBottom: '20px' }}>
+          <Typography variant="h6" align="center" gutterBottom>
+            Search Filters
+          </Typography>
           <Grid container spacing={2} alignItems="center" justifyContent="center">
             <Grid item xs={12} sm={6}>
               <TextField
@@ -101,20 +101,6 @@ const PetList = () => {
                 onChange={handleInputChange}
                 color="primary"
               />
-            </Grid>
-            <Grid item xs={12}>
-              <Button
-                variant="contained"
-                style={{
-                  backgroundColor: '#ff9f1a',
-                  color: '#fff', // White text for contrast
-                }}
-                startIcon={<Search />}
-                onClick={fetchPets}
-                fullWidth
-              >
-                Search
-              </Button>
             </Grid>
           </Grid>
         </Paper>
