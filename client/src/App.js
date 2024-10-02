@@ -7,7 +7,7 @@ import PetDetail from "./pages/PetDetail";
 import AdminDashboard from "./pages/AdminDashboard";
 import { UserProvider } from "./pages/UserContext";
 import UserProfile from './pages/UserProfile';
-
+import PetMatchmaker from './pages/PetMatchmaker';
 import Articles from './pages/Articles';
 import Error from './pages/Error';
 import ContactUs from "./pages/ContactUs";
@@ -29,6 +29,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/about-us" element={<About />} />
+          <Route path="/petmatchmaker" element={<PetMatchmaker />} />
           <Route path="*" element={<Error />} />
 
           {/* Protected routes for Admin */}

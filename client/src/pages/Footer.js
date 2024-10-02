@@ -89,19 +89,27 @@ const Footer = () => {
               Blog
             </Link>
             <Link
+              href="/petmatchmaker"
+              underline="none"
+              sx={{ display: "block", color: "#bbb", mb: 1 }}
+            >
+              Pet Match
+            </Link>
+            <Link
+              href="/about"
+              underline="none"
+              sx={{ display: "block", color: "#bbb", mb: 1 }}
+            >
+              About Us
+            </Link>
+            <Link
               href="/contact-us"
               underline="none"
               sx={{ display: "block", color: "#bbb", mb: 1 }}
             >
               Contact Us
             </Link>
-            <Link
-              href="/"
-              underline="none"
-              sx={{ display: "block", color: "#bbb" }}
-            >
-              Reptile product
-            </Link>
+            
           </Box>
         </Grid>
 

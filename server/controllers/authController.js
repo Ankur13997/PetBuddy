@@ -14,6 +14,9 @@ const generateToken = (user) => {
 // @desc    Register a new user
 // @route   POST /api/auth/register
 // @access  Public
+// @desc    Register a new user
+// @route   POST /api/auth/register
+// @access  Public
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -31,9 +34,9 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    user = new User({ name, email, password: hashedPassword });
-    await user.save();
+    // Create a new user without hashing the password here
+    user = new User({ name, email, password }); // Pass plain password
+    await user.save(); // Pre-save middleware will hash the password
 
     const token = generateToken(user); // Pass the user object to generateToken
     res.status(201).json({ token });
@@ -42,6 +45,7 @@ exports.registerUser = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 // @desc    Login user
 // @route   POST /api/auth/login
@@ -55,11 +59,13 @@ exports.loginUser = async (req, res) => {
     }
 
     const user = await User.findOne({ email });
+    
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
     const isMatch = await user.matchPassword(password);
+    console.log(isMatch);
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
