@@ -23,7 +23,7 @@ app.use(cors(corsOptions));
 app.use(helmet()); // Enhance security
 app.use(morgan('dev')); // Log requests to the console
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use('/api/auth', authRoutes);
