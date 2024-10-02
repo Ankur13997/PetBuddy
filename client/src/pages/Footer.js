@@ -11,7 +11,7 @@ import {
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-
+import ApiConfig from '../utils/ApiConfig';
 const Footer = () => {
   const [email, setEmail] = useState(''); // State for email input
   const [errorMessage, setErrorMessage] = useState(''); // State for error message
@@ -25,7 +25,7 @@ const Footer = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/subscribe', {
+      const response = await fetch(`${ApiConfig.backendUrl}/api/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ const Footer = () => {
                 underline="none"
                 sx={{ display: "block", color: "#bbb", mb: 1 }}
               >
-                Pet Match
+                Pet Matcher
               </Link>
               <Link
                 href="/about"

@@ -33,7 +33,7 @@ const ArticleDetail = () => {
         </Typography>
         <Box sx={{ margin: "2rem 0" }}>
           <img
-            src={article.image || "/images/cat1.jpg"}
+            src={article.image || "/images/petblog.jpg"}
             alt={article.title}
             width="100%"
           />

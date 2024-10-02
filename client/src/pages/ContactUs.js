@@ -39,7 +39,7 @@ const ContactUs = () => {
     <>
       <Header />
       
-      <PageHeader title="Contact" imageSrc="/images/blog.png" />
+      <PageHeader title="Contact" imageSrc="/images/contactheader.png" />
 
       <Box sx={{ padding: 4, maxWidth: 600, margin: "auto", bgcolor: "#f9f9f9", borderRadius: "8px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", textAlign: 'center' }}>
         <Paper elevation={3} sx={{ padding: 4, borderRadius: "8px" }}>

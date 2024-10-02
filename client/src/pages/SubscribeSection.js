@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-
+import ApiConfig from '../utils/ApiConfig';
 const useStyles = makeStyles((theme) => ({
   subscribeContainer: {
     backgroundColor: '#183437', // Dark teal background color
@@ -48,7 +48,7 @@ const SubscribeSection = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/subscribe', {
+      const response = await fetch(`${ApiConfig.backendUrl}/api/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

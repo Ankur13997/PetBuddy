@@ -190,7 +190,7 @@ const PetMatchmaker = () => {
   return (
     <>
       <Header />
-      <PageHeader title="Pet Matcher" imageSrc="/images/blog.png" />
+      <PageHeader title="Pet Matcher" imageSrc="/images/petmatch.png" />
       <Box
         sx={{
           display: "flex",

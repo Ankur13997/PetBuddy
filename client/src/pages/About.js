@@ -9,7 +9,7 @@ const About = () => {
     return (
       <>
         <Header />
-        <PageHeader title="About Us" imageSrc="/images/blog.png" />
+        <PageHeader title="About Us" imageSrc="/images/aboutheader.png" />
         <AboutDetail1/>
         <AboutDetail2/>
         <AboutImage/>

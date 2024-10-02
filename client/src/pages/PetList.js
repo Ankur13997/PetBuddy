@@ -47,7 +47,7 @@ const PetList = () => {
   return (
     <>
       <Header />
-      <PageHeader title="Pets" imageSrc="/images/blog.png" />
+      <PageHeader title="Pets" imageSrc="/images/petlist.png" />
       <Container maxWidth="md" style={{ marginTop: '20px', padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
         <Typography variant="h4" align="center" gutterBottom>
           Available Pets for Adoption

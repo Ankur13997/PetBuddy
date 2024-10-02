@@ -50,7 +50,7 @@ const Articles = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image={article.image || "/images/cat1.jpg"} // Fallback to a default image if no image provided
+                  image={article.image || "/images/petblog.jpg"} // Fallback to a default image if no image provided
                   alt={article.title}
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
