@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container, Typography, Box, Avatar, Grid, Alert } from '@mui/material';
 import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
-import useRedirectIfAuthenticated from './useRedirectIfAuthenticated';
+import useRedirectIfAuthenticated from '../utils/useRedirectIfAuthenticated';
 import ApiConfig from '../utils/ApiConfig';
 export const Register = () => {
   useRedirectIfAuthenticated();

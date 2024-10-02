@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import { FaEnvelope, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
-import Header from "./Header";
-import Footer from "./Footer";
-import PageHeader from "./PageHeader";
-import './UserProfile.css'; // Custom styles for UserProfile
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PageHeader from "../components/PageHeader";
+import '../css/UserProfile.css'; // Custom styles for UserProfile
 import ApiConfig from '../utils/ApiConfig';
 import { CircularProgress, Box } from '@mui/material';
 const UserProfile = () => {

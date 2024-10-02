@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { FaUserCircle, FaSignOutAlt } from "react-icons/fa";
-import { useUser } from "./UserContext"; // Assuming you have a UserContext
+import { useUser } from "../utils/UserContext"; // Assuming you have a UserContext
 
 const Header = () => {
   const { userId, username, isAdmin, setUserId, setUsername } = useUser();

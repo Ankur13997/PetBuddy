@@ -10,9 +10,9 @@ import {
   Fade,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import Header from "./Header";
-import Footer from "./Footer";
-import PageHeader from "./PageHeader";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PageHeader from "../components/PageHeader";
 // Custom animation for the final result
 const ResultBox = styled(Box)({
   animation: "fadeInUp 0.8s ease-out",

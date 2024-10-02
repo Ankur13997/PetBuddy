@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Home.css"; // Assuming you have a CSS file for styling
-import Header from "./Header";
-import Footer from "./Footer";
-import Testimonials from "./Testimonials";
-import SubscribeSection from './SubscribeSection';
-import HomePet from "./HomePet";
+import "../css/Home.css"; // Assuming you have a CSS file for styling
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Testimonials from "../components/Testimonials";
+import SubscribeSection from '../components/SubscribeSection';
+import HomePet from "../components/HomePet";
 // Update the image path as needed
 
 const Home = () => {

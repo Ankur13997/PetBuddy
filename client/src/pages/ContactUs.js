@@ -9,9 +9,9 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material";
-import Header from './Header';
-import Footer from './Footer';
-import PageHeader from './PageHeader'; 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import PageHeader from '../components/PageHeader'; 
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({

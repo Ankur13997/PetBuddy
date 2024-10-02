@@ -4,15 +4,15 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import PetList from "./pages/PetList";
 import PetDetail from "./pages/PetDetail";
-import AdminDashboard from "./pages/AdminDashboard";
-import { UserProvider } from "./pages/UserContext";
+import AdminDashboard from "./admin/AdminDashboard";
+import { UserProvider } from "./utils/UserContext";
 import UserProfile from './pages/UserProfile';
 import PetMatchmaker from './pages/PetMatchmaker';
 import Articles from './pages/Articles';
 import Error from './pages/Error';
 import ContactUs from "./pages/ContactUs";
 import ArticleDetail from './pages/ArticleDetail';
-import ProtectedAdminRoute from './pages/ProtectedAdminRoute'
+import ProtectedAdminRoute from './utils/ProtectedAdminRoute'
 import About from "./pages/About";
 function App() {
   return (

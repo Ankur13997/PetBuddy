@@ -11,9 +11,9 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Header from "./Header";
-import Footer from "./Footer";
-import PageHeader from "./PageHeader"; // Import your new PageHeader component
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PageHeader from "../components/PageHeader"; // Import your new PageHeader component
 import ApiConfig from "../utils/ApiConfig";
 const Articles = () => {
   const [articles, setArticles] = useState([]);

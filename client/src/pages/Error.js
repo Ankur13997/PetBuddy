@@ -1,10 +1,10 @@
 import React from "react";
-import "./Error.css"; // Optional: For custom CSS styles
-import Header from "./Header";
-import Footer from "./Footer";
+import "../css/Error.css"; 
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 const Error = () => {
   const handleBackToHome = () => {
-    window.location.href = "/"; // Redirect to home page
+    window.location.href = "/"; 
   };
 
   return (

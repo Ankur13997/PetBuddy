@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import AdoptionForm from './AdoptionForm';
-import Header from "./Header";
-import Footer from "./Footer";
+import AdoptionForm from '../components/AdoptionForm';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import {
   Container,
   Typography,

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ApiConfig from '../utils/ApiConfig';
-import Header from "./Header";
-import Footer from "./Footer";
-import PageHeader from "./PageHeader";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PageHeader from "../components/PageHeader";
 import AdminAddPet from "./AdminAddPet";
 import AdminArticles from "./AdminArticles";
 import { Card, CardContent, Typography, Grid, Button, List, ListItem, ListItemText, Box } from "@mui/material";
@@ -39,7 +39,9 @@ const AdminDashboard = () => {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await axios.put(`${ApiConfig.backendUrl}/api/admin/applications/${id}`, { status });
+      const token = localStorage.getItem("token"); 
+      const config = { headers: { Authorization: `Bearer ${token}` } }; 
+      await axios.put(`${ApiConfig.backendUrl}/api/admin/applications/${id}`, { status }, config);
       fetchApplications();
     } catch (error) {
       console.error("Error updating application status:", error);

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Container, Typography, Box } from "@mui/material";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import ApiConfig from "../utils/ApiConfig";
 const ArticleDetail = () => {
   const { id } = useParams(); // Extract the article ID from the URL

@@ -12,9 +12,9 @@ import {
   CardMedia,
   Paper,
 } from '@mui/material';
-import Header from "./Header";
-import Footer from "./Footer";
-import PageHeader from './PageHeader'; 
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PageHeader from '../components/PageHeader'; 
 const PetList = () => {
   const [pets, setPets] = useState([]);
   const [searchParams, setSearchParams] = useState({

@@ -1,10 +1,10 @@
 import React from "react";
-import Header from './Header';
-import Footer from './Footer';
-import PageHeader from './PageHeader'; 
-import AboutDetail1 from "./AboutDetail1";
-import AboutDetail2 from "./AboutDetail2";
-import AboutImage from "./AboutImage";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import PageHeader from '../components/PageHeader'; 
+import AboutDetail1 from "../components/AboutDetail1";
+import AboutDetail2 from "../components/AboutDetail2";
+import AboutImage from "../components/AboutImage";
 const About = () => {
     return (
       <>
