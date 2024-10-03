@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ApiConfig from '../utils/ApiConfig';
 import {
   Box,
   Typography,
@@ -27,12 +28,29 @@ const ContactUs = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form Data Submitted: ", formData);
-    // Simulate form submission success
-    setSuccess(true);
-    setFormData({ name: "", email: "", message: "" }); // Reset form
+
+    try {
+      const response = await fetch(`${ApiConfig.backendUrl}/api/contactus`, { // Update this URL to match your backend endpoint
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        throw new Error('Network response was not ok.');
+      }
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setError(true);
+    }
   };
 
   return (
@@ -116,7 +134,7 @@ const ContactUs = () => {
             </Button>
           </form>
 
-          {/* Location Section - Moved below the submit button */}
+          {/* Location Section */}
           <Box sx={{ marginTop: 4 }}>
             <Typography variant="h5" component="h2" sx={{ fontWeight: 'bold', marginBottom: 2 }}>
               Find us at this location
