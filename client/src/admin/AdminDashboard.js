@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 import AdminAddPet from "./AdminAddPet";
 import AdminArticles from "./AdminArticles";
+import AdminAddTestimonial from "./AdminAddTestimonial";
 import { Card, CardContent, Typography, Grid, Button, List, ListItem, ListItemText, Box } from "@mui/material";
 import { CheckCircle, Cancel, Delete } from "@mui/icons-material";
 
@@ -116,6 +117,8 @@ const AdminDashboard = () => {
             </CardContent>
           </Card>
         ));
+      case "Manage Testimonials":
+          return <AdminAddTestimonial />; 
       default:
         return null;
     }
@@ -130,14 +133,24 @@ const AdminDashboard = () => {
         {/* First Column: Links */}
         <Grid item xs={3}>
           <List>
-            {["Add New Pet", "Manage Articles", "Adoption Applications", "Manage Pets"].map((section) => (
+            {[
+              "Adoption Applications",
+              "Manage Pets",
+              "Add New Pet",
+              "Manage Articles",
+              "Manage Testimonials" 
+            ].map((section) => (
               <ListItem
                 button
                 key={section}
                 onClick={() => setSelectedSection(section)}
-                style={{
-                  backgroundColor: selectedSection === section ? "#e0f7fa" : "inherit", // Highlight selected section
+                sx={{
+                  backgroundColor: selectedSection === section ? "#f0e68c" : "inherit", // Highlight selected section
                   borderRadius: "5px",
+                  '&:hover': {
+                    backgroundColor: '#f0e68c', // Yellowish color on hover
+                    cursor: 'pointer', // Change cursor to pointer on hover
+                  },
                 }}
               >
                 <ListItemText primary={section} />
@@ -152,14 +165,16 @@ const AdminDashboard = () => {
             <Typography variant="h4" gutterBottom>
               {selectedSection}
             </Typography>
-            {renderContent()}
+            {renderContent()} {/* Renders the selected section's content */}
           </Box>
         </Grid>
       </Grid>
 
       <Footer />
     </div>
-  );
+);
+
+
 };
 
 export default AdminDashboard;
