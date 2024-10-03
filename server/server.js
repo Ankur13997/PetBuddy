@@ -12,11 +12,17 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const subscribeRoutes = require('./routes/subscribeRoutes')
+const clientURL = process.env.NODE_ENV === 'production' 
+? 'https://petbuddy.onrender.com' 
+: 'http://localhost:3000';
+
+
 var corsOptions = {
-  origin: 'https://petbuddy.onrender.com',
+  origin: clientURL,
   methods: "GET, POST, DELETE, PATCH, HEAD, PUT",
   credentials: true,
 };
+
 
 const app = express();
 app.use(cors(corsOptions)); 

@@ -1,50 +1,59 @@
-// controller.js
+const { google } = require('googleapis');
+require('dotenv').config(); // Load environment variables from the .env file
 
-const XLSX = require('xlsx');
-const path = require('path');
+// Parse the Google OAuth credentials from the environment variable
 
-// Function to subscribe an email and save it to an Excel file
-const subscribeEmail = (req, res) => {
+
+const credentials = JSON.parse(process.env.GOOGLE_OAUTH_CREDENTIALS);
+// Setup the Google Sheets API client
+const auth = new google.auth.GoogleAuth({
+  credentials,
+  scopes: ['https://www.googleapis.com/auth/spreadsheets']
+});
+
+const sheets = google.sheets({ version: 'v4', auth });
+ 
+// Google Sheet ID and sheet name
+const SPREADSHEET_ID = '1R0KocC87Uj3HnyK8M6sczYkkoDjcupRpUEZ0Xzh47PU'; // Your Google Sheet ID
+const SHEET_NAME = 'Subscribers'; // Your sheet name
+
+// Function to subscribe an email and save it to a Google Sheet
+const subscribeEmail = async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
-      return res.status(400).json({ message: 'Email is required' });
+        return res.status(400).json({ message: 'Email is required' });
     }
-  
-    // Path to your Excel file
-    const filePath = path.join(__dirname, '../subscriber_emails.xlsx');
-  
-    // Load the workbook
-    const workbook = XLSX.readFile(filePath);
-    const worksheetName = 'Subscribers'; // Define the name of your worksheet
-    let worksheet;
-  
-    // Check if the worksheet exists, if not create it
-    if (workbook.Sheets[worksheetName]) {
-      worksheet = workbook.Sheets[worksheetName];
-    } else {
-      // If the sheet doesn't exist, create a new one
-      worksheet = XLSX.utils.aoa_to_sheet([]); // Create a new empty sheet
-      workbook.SheetNames.push(worksheetName);
-      workbook.Sheets[worksheetName] = worksheet;
+ 
+    try {
+        // Fetch the existing emails from the Google Sheet
+        const getRows = await sheets.spreadsheets.values.get({
+            spreadsheetId: SPREADSHEET_ID,
+            range: `${SHEET_NAME}!A:A` // Fetch all emails in column A
+        });
+
+        const existingEmails = getRows.data.values ? getRows.data.values.flat() : [];
+
+        // Check if the email is already subscribed
+        if (existingEmails.includes(email)) {
+            return res.status(400).json({ message: 'Email is already subscribed' });
+        }
+
+        // Append the new email to the Google Sheet
+        await sheets.spreadsheets.values.append({
+            spreadsheetId: SPREADSHEET_ID,
+            range: `${SHEET_NAME}!A:A`,
+            valueInputOption: 'RAW',
+            resource: {
+                values: [[email]] // Add new email as a new row
+            }
+        });
+
+        return res.status(200).json({ message: 'Subscribed successfully!' });
+    } catch (error) {
+        console.error('Error subscribing email:', error);
+        return res.status(500).json({ message: 'Failed to subscribe email' });
     }
-  
-    // Get existing emails
-    const existingEmails = XLSX.utils.sheet_to_json(worksheet, { header: 1 }).flat();
-  
-    // Check for duplicates
-    if (existingEmails.includes(email)) {
-      return res.status(400).json({ message: 'Email is already subscribed' });
-    }
-  
-    // Add new email to the worksheet
-    const newRow = [email]; // Creating a new row for the email
-    XLSX.utils.sheet_add_aoa(worksheet, [newRow], { origin: -1 }); // Append new email to the end
-  
-    // Write the updated workbook back to the file
-    XLSX.writeFile(workbook, filePath);
-  
-    return res.status(200).json({ message: 'Subscribed successfully!' });
 };
 
 module.exports = { subscribeEmail };
