@@ -12,6 +12,7 @@ import {
   ListItem,
   ListItemText,
   IconButton,
+  Card, CardContent, CardActions,
 } from '@mui/material';
 import ApiConfig from '../utils/ApiConfig';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -124,7 +125,14 @@ const AdminAddTestimonial = () => {
           fullWidth
           style={{ marginBottom: '10px' }}
         />
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="contained" sx={{
+            backgroundColor: '#FFC107', // Yellow color
+            color: '#192a36', // Dark text color for contrast
+            '&:hover': {
+              backgroundColor: '#FFEB3B', // Lighter yellow on hover
+            },
+            
+          }} type="submit">
           {editingId ? 'Update Testimonial' : 'Add Testimonial'}
         </Button>
       </form>
@@ -141,24 +149,28 @@ const AdminAddTestimonial = () => {
       </Snackbar>
 
       <Box mt={3}>
-        <Typography variant="h6">Testimonials List</Typography>
-        <List>
-          {testimonials.map((testimonial) => (
-            <ListItem key={testimonial._id}>
-              <ListItemText
-                primary={testimonial.text}
-                secondary={`${testimonial.name} - ${testimonial.role}`}
-              />
-              <IconButton  color="success" onClick={() => handleEdit(testimonial)}>
-                <EditIcon />
-              </IconButton>
-              <IconButton  color="error" onClick={() => handleDelete(testimonial._id)}>
-                <DeleteIcon />
-              </IconButton>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
+    <Typography variant="h6" gutterBottom>
+        Testimonials List
+    </Typography>
+    {testimonials.map((testimonial) => (
+        <Card key={testimonial._id} variant="outlined" sx={{ mb: 2 }}>
+            <CardContent>
+                <Typography variant="body1">{testimonial.text}</Typography>
+                <Typography variant="subtitle2" color="textSecondary">
+                    {testimonial.name} - {testimonial.role}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <IconButton color="success" onClick={() => handleEdit(testimonial)}>
+                    <EditIcon />
+                </IconButton>
+                <IconButton color="error" onClick={() => handleDelete(testimonial._id)}>
+                    <DeleteIcon />
+                </IconButton>
+            </CardActions>
+        </Card>
+    ))}
+</Box>
     </div>
   );
 };
