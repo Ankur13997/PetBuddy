@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-
+import { Link } from 'react-router-dom';
 // Replace with your YouTube video link
 const videoUrl = "https://www.youtube.com/embed/NtyCzZtanjo?autoplay=1";
 
@@ -39,10 +39,12 @@ const HomePet = () => {
           <Button
             variant="contained"
             color="warning"
-            size="large"
+            
+            component={Link} 
+           to="/pets"
             sx={{ marginTop: "20px" }}
           >
-            Shop Now
+            Explore Now
           </Button>
         </Grid>
 

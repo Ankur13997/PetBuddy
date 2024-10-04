@@ -9,6 +9,7 @@ import HomePet from "../components/HomePet";
 import HomeHeroSection from "../components/HomeHeroSection";
 import AdoptionPhilosophy from "../components/AdoptionPhilosophy";
 import WelcomeSection from "../components/WelcomeSection";
+import PetMatchmaker from '../components/PetMatchmaker';
 // Update the image path as needed
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
       <AdoptionPhilosophy />
 
       <WelcomeSection />
+      <PetMatchmaker />
       <HomePet />
       <Testimonials />
       <SubscribeSection />

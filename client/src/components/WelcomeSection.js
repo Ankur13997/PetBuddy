@@ -45,8 +45,8 @@ const WelcomeSection = () => {
           variant="contained" 
           color="warning" 
           component={Link} 
-          to="/about" 
-          sx={{ padding: '10px 20px', borderRadius: '5px', display: 'block', margin: { xs: '0 auto', md: '0' } }}
+          to="/about-us" 
+          sx={{ padding: '10px 20px', borderRadius: '5px', margin: { xs: '0 auto', md: '0' } }}
         >
           About Us
         </Button>
