@@ -33,8 +33,8 @@ const HomePet = () => {
             Unbreakable bonds pets, humanity's best friend
           </Typography>
           <Typography variant="body1" paragraph>
-            Let's find the perfect food for your pet. This is a statement
-            inviting you to search for food that suits the needs of your pet.
+          Discover your perfect companion at PetBuddy. 
+          Every pet deserves a loving home, and we're here to help you find the one that completes your family.
           </Typography>
           <Button
             variant="contained"

@@ -35,6 +35,9 @@ const Header = () => {
         <ListItem button component={Link} to="/blog">
           <ListItemText primary="Blog" />
         </ListItem>
+        <ListItem button component={Link} to="/petmatchmaker">
+          <ListItemText primary="Pet Matchmaker" />
+        </ListItem>
         <ListItem button component={Link} to="/about-us">
           <ListItemText primary="About Us" />
         </ListItem>
