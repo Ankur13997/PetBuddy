@@ -12,11 +12,16 @@ const PetMatchmaker = () => {
         textAlign: 'center',
       }}
     >
-      <Grid container spacing={5} alignItems="center">
+      <Grid container  alignItems="center">
         
         {/* Text Section */}
         <Grid item xs={12} md={6}>
-          <Typography variant="h4" gutterBottom>
+        <Typography 
+            variant="h3" 
+            fontWeight="bold" 
+            gutterBottom 
+            sx={{ fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' } }} // Font size responsive
+          >
             Find Your Perfect Pet Match
           </Typography>
           <Typography variant="body1" sx={{ mb: 3 }}>

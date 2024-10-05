@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import { Link } from 'react-router-dom';
-// Replace with your YouTube video link
+
 const videoUrl = "https://www.youtube.com/embed/NtyCzZtanjo?autoplay=1";
 
 const HomePet = () => {
@@ -15,8 +15,9 @@ const HomePet = () => {
   return (
     <Box
       sx={{
-        padding: "50px 0",
+        padding: { xs: "30px 10px", sm: "40px 20px", md: "50px 30px" }, // Adjust padding for different devices
         textAlign: "left",
+         minHeight: '65vh'
       }}
     >
       <Grid
@@ -24,25 +25,36 @@ const HomePet = () => {
         spacing={4}
         alignItems="center"
         justifyContent="center"
-        maxWidth="lg"
-        sx={{ margin: "0 auto" }}
+        sx={{
+          margin: "0 auto",
+          width: { xs: '95%', sm: '90%', md: '85%', lg: '75%' }, // Adjusting width for different breakpoints
+          maxWidth: "100%", // Ensure it doesn’t exceed 100% of the screen
+        }}
       >
         {/* Left Text Section */}
         <Grid item xs={12} md={6}>
-          <Typography variant="h3" fontWeight="bold" gutterBottom>
+          <Typography 
+            variant="h3" 
+            fontWeight="bold" 
+            gutterBottom 
+            sx={{ fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' } }} // Font size responsive
+          >
             Unbreakable bonds pets, humanity's best friend
           </Typography>
-          <Typography variant="body1" paragraph>
-          Discover your perfect companion at PetBuddy. 
-          Every pet deserves a loving home, and we're here to help you find the one that completes your family.
+          <Typography 
+            variant="body1" 
+            paragraph 
+            sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }, lineHeight: '1.6' }} // Responsive text size
+          >
+            Discover your perfect companion at PetBuddy. 
+            Every pet deserves a loving home, and we're here to help you find the one that completes your family.
           </Typography>
           <Button
             variant="contained"
             color="warning"
-            
             component={Link} 
-           to="/pets"
-            sx={{ marginTop: "20px" }}
+            to="/pets"
+            sx={{ marginTop: "20px", padding: { xs: '10px 20px', sm: '12px 25px' }, fontSize: { xs: '0.8rem', sm: '0.9rem' } }} // Responsive button size
           >
             Explore Now
           </Button>
