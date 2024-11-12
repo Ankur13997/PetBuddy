@@ -9,7 +9,7 @@ PetBuddy is a full-stack web platform built using the **MERN** stack (MongoDB, E
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
 - [Running the Project](#running-the-project)
-- [Screenshots](#screenshots)
+
 
 # Features
 
